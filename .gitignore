@@ -155,3 +155,5 @@ cython_debug/
 *.log
 *.out
 *.synctex.gz
+*.bbl
+*.blg
