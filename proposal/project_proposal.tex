@@ -11,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{graphicx}
+\usepackage[table]{xcolor}
 
 %
 %  TITLE AND AUTHORS
@@ -88,73 +89,6 @@ Once we have performed this combination, any genera with less than 75 images wil
 
 \section{Baseline Model}
 For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{BreimanCutler.RandomForests.2004}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}.
-
-\section{Citations, figures, tables, references}
-\label{others}
-
-These instructions apply to everyone, regardless of the formatter being used.
-
-\subsection{Citations within the text}
-
-Citations within the text should be based on the \texttt{natbib} package
-and include the authors' last names and year (with the ``et~al.'' construct
-for more than two authors). When the authors or the publication are
-included in the sentence, the citation should not be in parenthesis using \verb|\citet{}| (as
-in ``See \citet{Hinton06} for more information.''). Otherwise, the citation
-should be in parenthesis using \verb|\citep{}| (as in ``Deep learning shows promise to make progress
-towards AI~\citep{Bengio+chapter2007}.'').
-
-The corresponding references are to be listed in alphabetical order of
-authors, in the \textsc{References} section. As to the format of the
-references themselves, any style is acceptable as long as it is used
-consistently.
-
-To cite a new paper, first, you need to add that paper's BibTeX information to \verb+APS360_ref.bib+ file and then you can use the \verb|\citep{}| command to cite that in your main document. 
-
-\subsection{Footnotes}
-
-Indicate footnotes with a number\footnote{Sample of the first footnote} in the
-text. Place the footnotes at the bottom of the page on which they appear.
-Precede the footnote with a horizontal rule of 2~inches
-(12~picas).\footnote{Sample of the second footnote}
-
-\subsection{Tables}
-
-All tables must be centered, neat, clean and legible. Do not use hand-drawn
-tables. The table number and title always appear before the table. See
-Table~\ref{sample-table}.
-
-Place one line space before the table title, one line space after the table
-title, and one line space after the table. The table title must be lower case
-(except for first word and proper nouns); tables are numbered consecutively.
-
-\begin{table}[t]
-\caption{Sample table title}
-\label{sample-table}
-\begin{center}
-\begin{tabular}{ll}
-\multicolumn{1}{c}{\bf PART}  &\multicolumn{1}{c}{\bf DESCRIPTION}
-\\ \hline \\
-Dendrite         &Input terminal \\
-Axon             &Output terminal \\
-Soma             &Cell body (contains cell nucleus) \\
-\end{tabular}
-\end{center}
-\end{table}
-
-\section{Risk Register}
-As with any large scale project, there are many associated risks:
-
-\begin{itemize}
-  \item What if a team member elects to drop the course?
-  \item What if the model isn't training properly?
-  \item What happens if there's scope creep?
-  \item What happens during time crunches?
-\end{itemize}
-
-We are privileged to have been friends for over a year. We have respect for and have worked with each other in the past. We recognise that a group member dropping the course, while far from ideal, is a choice that is made for a reason. Should such a case occur, we will meet and discuss how extra work will be divided and make a plan to ensure the project continues as planned with an extra workload.
-
-We intend to avoid quality issues with the model by setting a timeline that leaves time for multiple rounds of iteration, further training, and debugging. 
 
 \section{Project Plan}
 Task Breakdown and Responsibilities (Green = completed, Yellow = in progress, Red = not started)\\
@@ -263,6 +197,23 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
     \caption{Project Progress Report Task Breakdown}
 \end{table}
 
+\section{Risk Register}
+As with any large scale project, there are many associated risks:
+
+\begin{itemize}
+  \item What if a team member elects to drop the course?
+  \item What if the model isn't training properly?
+  \item What happens if there's scope creep?
+  \item What happens during time crunches?
+\end{itemize}
+
+We are privileged to have been friends for over a year. We have respect for and have worked with each other in the past. We recognise that a group member dropping the course, while far from ideal, is a choice that is made for a reason. Should such a case occur, we will meet and discuss how extra work will be divided and make a plan to ensure the project continues as planned with an extra workload.
+
+We intend to avoid quality issues with the model by setting a timeline that leaves time for multiple rounds of iteration, further training, and debugging. If the model's performance is subpar, we intend to first make changes to the data processing and architecture. With a relatively small amount of data per class, deliberate improvements to both areas may be able to immediately improve performance.
+
+As with many projects, this proposal was written with the understanding that circumstances may change as the semester continues. If left unchecked, project requirements can change drastically from the original proposal. We will keep this in mind as we discuss and work on the project to avoid any misconceptions.
+
+Finally, we have experienced many short time constraints in previous projects and understand how they may affect the quality of the final product. The timeline we intend to set leaves extra room for unexpected issues. Should a time crunch occur, we will evaluate our responsibilities and progress and work according to a priority queue.
 
 \label{last_page}
 
