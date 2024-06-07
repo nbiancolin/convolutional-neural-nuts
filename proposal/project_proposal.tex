@@ -88,7 +88,9 @@ Once we have performed this combination, any genera with less than 75 images wil
 \end{figure}
 
 \section{Baseline Model}
-For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{BreimanCutler.RandomForests.2004}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}.
+For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{GallRazaviEtAl.IntroductionRandomForests.2012}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}. 
+
+We will compare the classification accuracy and training time for both models. The random forest model will be trained using the scikit-learn library on the same data and data processing as the neural network model, following the steps outlined in \cite{Shafl.RandomForestClassification.2023}.
 
 \section{Project Plan}
 Task Breakdown and Responsibilities (Green = completed, Yellow = in progress, Red = not started)\\
