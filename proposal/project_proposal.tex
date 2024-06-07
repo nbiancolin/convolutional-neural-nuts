@@ -13,6 +13,9 @@
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
 
+\usepackage{graphicx} % Required for \resizebox
+\usepackage{placeins} % Required for \FloatBarrier
+
 %
 %  TITLE AND AUTHORS
 %
@@ -110,25 +113,25 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
         \textbf{Project Proposal} & \textbf{Eric Liu} & \textbf{Jason Zhang} & \textbf{Nicholas Biancolin} & \textbf{Yanni Alevras} \\
         \hline
         \rowcolor{green!50}
-        Introduction (June 4th, 11:59pm) & W & W & W & W \\
+        Introduction (June 4th, 11:59pm) & W & W & W ED & W \\
         \hline
         \rowcolor{green!50}
-        Illustration/Figure (June 5th 11:59pm) & W & & & \\
+        Illustration/Figure (June 5th 11:59pm) & W & ED & & \\
         \hline
         \rowcolor{green!50}
-        Background and Related Work (June 5th 11:59pm) & & & & \\
+        Background and Related Work (June 5th 11:59pm) & & ED & & W \\
         \hline
         \rowcolor{green!50}
-        Data Processing (June 5th 11:59pm) & & & & \\
+        Data Processing (June 5th 11:59pm) & & W & & \\
         \hline
         \rowcolor{green!50}
-        Architecture (June 5th 11:59pm) & & & & \\
+        Architecture (June 5th 11:59pm) & ED & W & & \\
         \hline
         \rowcolor{green!50}
-        Baseline Model (June 5th 11:59pm) & W & & & \\
+        Baseline Model (June 5th 11:59pm) & ED & ED & W & \\
         \hline
         \rowcolor{green!50}
-        Ethical Considerations (June 5th 11:59pm) & W & & & \\
+        Ethical Considerations (June 5th 11:59pm) & & & ED & W \\
         \hline
         \rowcolor{green!50}
         Project Plan (June 5th 11:59pm) & W & & & \\
@@ -137,26 +140,28 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
         Task research and distribution (June 5th 11:59pm) & W & & & \\
         \hline
         \rowcolor{green!50}
-        Risk Register (June 5th 11:59pm) & W & & & \\
+        Risk Register (June 5th 11:59pm) & & & W & \\
         \hline
         \rowcolor{green!50}
-        Github, References (June 5th 11:59pm) & W & & & \\
+        Github, References (June 5th 11:59pm) & ED & W & W & W\\
         \hline
         \rowcolor{green!50}
-        Structure, Grammar and Mechanics (June 5th 11:59pm) & W & & & \\
+        Structure, Grammar and Mechanics (June 5th 11:59pm) & ED & W & & \\
         \hline
         \rowcolor{green!50}
-        Document in LaTeX (June 5th 11:59pm) & & & & \\
+        Document in LaTeX (June 5th 11:59pm) & W & W MR ED& & \\
         \hline
         \rowcolor{green!50}
-        Editing (June 6th 11:59pm) & & & & \\
+        Editing (June 6th 11:59pm) & ED & ED & & \\
         \hline
         \rowcolor{green!50}
-        Final Document Proofread (June 6th 11:59pm) & & & & \\
+        Final Document Proofread (June 6th 11:59pm) & ED & ED & & \\
         \hline
     \end{tabular}}
     \caption{Project Proposal Task Breakdown}
 \end{table}
+
+\FloatBarrier
 
 
 \begin{table}[ht]
@@ -168,37 +173,37 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
         \textbf{Project Progress Report} & \textbf{Eric Liu} & \textbf{Jason Zhang} & \textbf{Nicholas Biancolin} & \textbf{Yanni Alevras} \\
         \hline
         \rowcolor{red!50}
-        Brief Project Description (June 30th, 11:59 pm) & & & & \\
+        Brief Project Description (June 30th, 11:59 pm) & W & W & W & W\\
         \hline
         \rowcolor{red!50}
-        Individual Contributions and Responsibilities (June 30th, 11:59 pm) & & & & \\
+        Individual Contributions and Responsibilities (June 30th, 11:59 pm) & W & ED & & \\
         \hline
         \rowcolor{red!50}
-        Contributions - Data Processing (June 30th, 11:59 pm) & & & & \\
+        Contributions - Data Processing (June 30th, 11:59 pm) & & W & ED & \\
         \hline
         \rowcolor{red!50}
-        Contributions - Baseline Model (June 30th, 11:59 pm) & & & & \\
+        Contributions - Baseline Model (June 30th, 11:59 pm) & & & W & ED\\
         \hline
         \rowcolor{red!50}
-        Contributions - Primary Model (June 30th, 11:59 pm) & & & & \\
+        Contributions - Primary Model (June 30th, 11:59 pm) & ED & & & W \\
         \hline
         \rowcolor{red!50}
-        Illustrations (July 1st, 11:59 pm) & & & & \\
+        Illustrations (July 1st, 11:59 pm) & W & ED & & \\
         \hline
         \rowcolor{red!50}
-        Latex format (July 2nd, 11:59 pm) & & & & \\
+        Latex format (July 2nd, 11:59 pm) & W & W & & \\
         \hline
         \rowcolor{red!50}
-        Editing (July 3rd, 11:59 pm) & & & & \\
+        Editing (July 3rd, 11:59 pm) & ED & ED & ED & ED\\
         \hline
         \rowcolor{red!50}
-        Final Proofread (July 4th, 6:00 pm) & & & & \\
+        Final Proofread (July 4th, 6:00 pm) & W & W & W & W \\
         \hline
     \end{tabular}}
     \caption{Project Progress Report Task Breakdown}
 \end{table}
 
-\clearpage
+\FloatBarrier
 
 \begin{table}[ht]
     \centering
@@ -263,7 +268,7 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
     \caption{Project Training and Testing Task Breakdown}
 \end{table}
 
-\clearpage
+\FloatBarrier
 
 \begin{table}[ht]
     \centering
@@ -307,7 +312,7 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
     \caption{Presentation Task Breakdown}
 \end{table}
 
-\clearpage
+\FloatBarrier
 
 \begin{table}[ht]
     \centering
@@ -366,7 +371,7 @@ W = wrote/coded/drawn, ED = edited, MR = major revision, FP = Final section proo
     \caption{Project Final Report Task Breakdown}
 \end{table}
 
-\clearpage
+\FloatBarrier
 
 Note: The tasks and their assignments may change, particularly when a major task requires splitting into smaller more feasible ones. 
 
