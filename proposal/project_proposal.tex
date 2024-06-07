@@ -53,7 +53,11 @@ Student\# 1008997631 \\
 The format for the submissions is a variant of the ICLR 2022 format.
 Please read carefully the instructions below, and follow them
 faithfully. There is a \textbf{9 page} limit for the main text. References do not have any limitation. This is also ICLR's standard length for a paper submission. 
-If your main text goes to page 10, a $-20\%$ penalty would be applied. If your main text goes to page 11, you will not receive any grade for your submission. 
+If your main text goes to page 10,a a $-20\%$ penalty would be applied. If your main text goes to page 11, you will not receive any grade for your submission. 
+
+We propose the use of the MIND.Funga dataset \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}, which has approximately 17 000 images of nearly 500 species of fungi. This dataset is well-suited for our project, as it is built primarily for use in deep classification models. Images are also curated to be of a high quality and are labelled by species.
+
+Our code can be found at this \href{https://github.com/nbiancolin/convolutional-neural-nuts}{GitHub repository}.
 
 \section{Background \& Related Work}
 \label{bg_related}
@@ -72,6 +76,18 @@ Other field work includes smartphone applications for recreational use, like Shr
 Many species in the dataset have a relatively small amount of images associated with them ($<30$ images), which may be detrimental when training, testing, and validating our model. To mitigate this, we intend to group images into larger “buckets” corresponding to a higher level of taxonomic classification, i.e., grouping by genus instead of by species. This is a simple way to reduce the number of classes our model must be trained on, and to increase the amount of data to a sufficient amount that model features can be reasonably trained. Genera form an ideal way to group images together — biologically species of the same genus share many physical characteristics, and they share a root name (the first word in the species name), which enhances ease of processing. Existing literature \citep{HollisterCaiEtAl.UsingComputerVision.2023} also suggests that models trained to classify genera tend to have better accuracy and are less difficult to train than species-level classification.
 
 Once we have performed this combination, any genera with less than 75 images will be discarded from the dataset. This matches the lower threshold of published ecological classifiers, like iNaturalist \citep{Shepard.LatestComputerVision.2022} or models trained on the ETHZ human dataset \citep{SchneiderTaylorEtAl.PresentFutureApproaches.2019}. It also matches what is considered by \cite{FarleyMehrotaEtAl.ImprovingYourModel.2024} to be the lower end of images per class to train a model without overfitting.
+
+\section{Architecture}
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[width=0.6\textwidth]{figures/model.png}
+  \end{center}
+  \caption{Proposed model training and deployment pipeline}
+\end{figure}
+
+\section{Baseline Model}
+For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{BreimanCutler.RandomForests.2004}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}.
 
 \section{Citations, figures, tables, references}
 \label{others}
@@ -102,30 +118,6 @@ text. Place the footnotes at the bottom of the page on which they appear.
 Precede the footnote with a horizontal rule of 2~inches
 (12~picas).\footnote{Sample of the second footnote}
 
-\subsection{Figures}
-
-All artwork must be neat, clean, and legible. Lines should be dark
-enough for purposes of reproduction; art work should not be
-hand-drawn. The figure number and caption always appear after the
-figure. Place one line space before the figure caption, and one line
-space after the figure. The figure caption is lower case (except for
-first word and proper nouns); figures are numbered consecutively.
-
-Make sure the figure caption does not get separated from the figure.
-Leave sufficient space to avoid splitting the figure and figure caption.
-
-You may use color figures.
-However, it is best for the
-figure captions and the paper body to make sense if the paper is printed
-either in black/white or in color.
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.6\textwidth]{figs/td-deep-learning.jpg}
-\end{center}
-\caption{Sample figure caption. Image: ZDNet}
-\end{figure}
-
 \subsection{Tables}
 
 All tables must be centered, neat, clean and legible. Do not use hand-drawn
@@ -150,14 +142,19 @@ Soma             &Cell body (contains cell nucleus) \\
 \end{center}
 \end{table}
 
-\section{Default Notation}
+\section{Risk Register}
+As with any large scale project, there are many associated risks:
 
-In an attempt to encourage standardized notation, we have included the
-notation file from the textbook, \textit{Deep Learning}
-\cite{goodfellow2016deep} available at
-\url{https://github.com/goodfeli/dlbook_notation/}.  Use of this style
-is not required and can be disabled by commenting out
-\texttt{math\_commands.tex}.
+\begin{itemize}
+  \item What if a team member elects to drop the course?
+  \item What if the model isn't training properly?
+  \item What happens if there's scope creep?
+  \item What happens during time crunches?
+\end{itemize}
+
+We are privileged to have been friends for over a year. We have respect for and have worked with each other in the past. We recognise that a group member dropping the course, while far from ideal, is a choice that is made for a reason. Should such a case occur, we will meet and discuss how extra work will be divided and make a plan to ensure the project continues as planned with an extra workload.
+
+We intend to avoid quality issues with the model by setting a timeline that leaves time for multiple rounds of iteration, further training, and debugging. 
 
 \section{Final instructions}
 Do not change any aspects of the formatting parameters in the style files.
@@ -165,15 +162,6 @@ In particular, do not modify the width or length of the rectangle the text
 should fit into, and do not change font sizes (except perhaps in the
 \textsc{References} section; see below). Please note that pages should be
 numbered.
-
-
-\subsubsection*{Author Contributions}
-If you'd like to, you may include  a section for author contributions as is done
-in many journals. This is optional and at the discretion of the authors.
-
-\subsubsection*{Acknowledgments}
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments, including those to funding agencies, go at the end of the paper.
 
 \label{last_page}
 
