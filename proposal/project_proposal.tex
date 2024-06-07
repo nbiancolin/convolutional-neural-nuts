@@ -81,12 +81,14 @@ Once we have performed this combination, any genera with less than 75 images wil
 Additional data augmentation techniques will be applied to the dataset to increase the amount of data, to ensure a sufficient amount of data for training, validation, and testing. We will randomly apply geometric transformations described in \cite{ShortenKhoshgoftaar.SurveyImageData.2019} with preference towards rotations and noise injection.
 
 \section{Architecture}
+\label{arch}
 Since our project primarily involves images, we plan to follow a workflow similar to that described by \cite{S.RenK.HeEtAl.FasterRCNNRealTime.2017}. We will first apply a regional proposal network (RPN) that first isolates the macrofungi from the image. RPNs are convolutional networks that are able to identify regions of interest (proposals) in an image.
 
 We will then apply a convolutional neural network (CNN) for detection and identification training. Prior literature \citep{BarreStoverEtAl.LeafNetComputerVision.2017} suggests that a CNN is best suited for computer vision classification problems, especially in ecology-related settings.
 
 We also intend to use a stochastic gradient descent-based optimizer, as it is a common choice for training deep neural networks \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}.
 
+\subsection{Illustration}
 \begin{figure}[h]
   \begin{center}
   \includegraphics[width=0.6\textwidth]{figures/model.png}
@@ -95,12 +97,15 @@ We also intend to use a stochastic gradient descent-based optimizer, as it is a 
 \end{figure}
 
 \section{Baseline Model}
+\label{baseline}
 For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{GallRazaviEtAl.IntroductionRandomForests.2012}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}. 
 
 We will compare the classification accuracy and training time for both models. The random forest model will be trained using the scikit-learn library with the same data and data processing steps as the neural network model, following the steps outlined in \cite{Shafl.RandomForestClassification.2023}.
 
 \section{Ethical Considerations}
-While our dataset does not contain any images of people, we aim to be cognisant of ethical implications with the characteristics and distribution of the dataset. It records a small subset of the globally recorded number of fungi species (approximately 500 out of )
+While our dataset does not contain any images of people, we aim to be cognisant of ethical implications with the characteristics and distribution of the dataset. It records a small subset of the globally recorded number of fungi species (approximately 500 out of 14 000), per \cite{LuckingAimeEtAl.UnambiguousIdentificationFungi.2020}. The dataset has a significant number of tropical fungi from Brazil, as images were collected primarily from the Brazilian public and universities \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}. This may lead to biases in the model, as the dataset is not a globally representative sample.
+
+Additionally, while the model is released under a permissive copyleft license (CC BY NC 3.0), the dataset is not free for commercial use, which may limit possible applications of the model. The MIND.Funga project that organized the dataset's collection also does not disclose that public contributions will be released under this license \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}, which may suggest inadequate informed copyright releases.
 
 \section{Project Plan}
 Task Breakdown and Responsibilities (Green = completed, Yellow = in progress, Red = not started)\\
