@@ -79,6 +79,11 @@ Many species in the dataset have a relatively small amount of images associated 
 Once we have performed this combination, any genera with less than 75 images will be discarded from the dataset. This matches the lower threshold of published ecological classifiers, like iNaturalist \citep{Shepard.LatestComputerVision.2022} or models trained on the ETHZ human dataset \citep{SchneiderTaylorEtAl.PresentFutureApproaches.2019}. It also matches what is considered by \cite{FarleyMehrotaEtAl.ImprovingYourModel.2024} to be the lower end of images per class to train a model without overfitting.
 
 \section{Architecture}
+Since our project primarily involves images, we plan to follow a workflow similar to that described by \cite{S.RenK.HeEtAl.FasterRCNNRealTime.2017}. We will first apply a regional proposal network (RPN) that first isolates the macrofungi from the image. RPNs are convolutional networks that are able to identify regions of interest (proposals) in an image.
+
+We will then apply a convolutional neural network (CNN) for detection and identification training. Prior literature \citep{BarreStoverEtAl.LeafNetComputerVision.2017} suggests that a CNN is best suited for computer vision classification problems, especially in ecology-related settings.
+
+We also intend to use a stochastic gradient descent-based optimizer, as it is a common choice for training deep neural networks \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}.
 
 \begin{figure}[h]
   \begin{center}
@@ -90,7 +95,7 @@ Once we have performed this combination, any genera with less than 75 images wil
 \section{Baseline Model}
 For the baseline model we are comparing our model against, we selected a random forest classifier model. Our goal is to identify several hundred species of macrofungi, making this a multiclass classification problem. Decision trees like random forest are generally suited for multiclass problems \citep{GallRazaviEtAl.IntroductionRandomForests.2012}. Other methods, like support vector machines, are generally suitable primarily for binary classification problems \citep{JamesWittenEtAl.IntroductionStatisticalLearning.2023}. 
 
-We will compare the classification accuracy and training time for both models. The random forest model will be trained using the scikit-learn library on the same data and data processing as the neural network model, following the steps outlined in \cite{Shafl.RandomForestClassification.2023}.
+We will compare the classification accuracy and training time for both models. The random forest model will be trained using the scikit-learn library with the same data and data processing steps as the neural network model, following the steps outlined in \cite{Shafl.RandomForestClassification.2023}.
 
 \section{Project Plan}
 Task Breakdown and Responsibilities (Green = completed, Yellow = in progress, Red = not started)\\
