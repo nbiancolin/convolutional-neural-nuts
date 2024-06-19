@@ -148,6 +148,9 @@ cython_debug/
 .idea/
 .vscode/
 
+# Misc additions
+data/
+
 # LaTeX
 *.aux
 *.fdb_latexmk
