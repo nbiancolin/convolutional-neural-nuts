@@ -126,6 +126,7 @@ The team uses AlexNet for its high-level feature extraction. AlexNet processes a
   
 To make the model specific to the team’s project, the team uses one additional convolutional layer, outputting a $128 \times 6 \times 6$ tensor. After the additional convolutional layer, the output gets flattened and passed through three fully connected layers with ReLU activation functions in between. The fully connected layers turned the size from 4608 to 256, then to 128, and lastly to 30, matching the number of output classes the team decided for the model.
   
+
 In total, there are $5+3$ layers in the non-tunable section and $1+3$ layers in the tunable section, making our class structure 12 layers in total.
   
 \begin{figure}[h]
@@ -175,7 +176,7 @@ The team's training graph with the specified hyper-parameters is shown above. It
     \item Epoch 8: Test Classification Accuracy: 65.12\%
 \end{itemize}
 
-From the above graph, the team chose epochs 4 and epoch 8 and did accuracy testing, using the testing data. Currently, we have a test classification accuracy of 65.12\%, which is a good start point considering the model must classify an image into one of thirty classes. The accuracy can be improved using various techniques:
+From the above graph, the team chose epochs 4 and epoch 8 and did accuracy testing, using the testing data. The testing accuracy is at a good starting point considering the model must classify an image into one of thirty classes. The accuracy can be improved using various techniques:
 \begin{itemize}
     \item The current data used in the training is not augmented. The data augmentation functions are completed, but not used currently to save runtime for the training loop. The team will add the augmented data as part of training in the future.
     \item Further hyperparameters fine tuning.
