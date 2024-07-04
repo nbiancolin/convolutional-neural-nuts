@@ -77,6 +77,10 @@ Student\# 1008997631 \\
 
 -detailed list of what everyone has worked on, and what they will be working on
 
+Yanni:
+
+For this milestone, Yanni contributed to the data augmentation portion of this project. Using 
+
 \begin{center}
 \begin{tabular}{ |c|c|c|c| }
 \hline
@@ -93,7 +97,7 @@ Student\# 1008997631 \\
 
 Data Processing
 
-The dataset contains ___ species. Stated in our project proposal, due to some low amount of sample imaging for some species we decided to group by genus. Any genus with under ___ samples would be removed. This narrowed us down from ___ species, and ___ genus, to ___ genus. To artificially increase the amount of data in our dataset, we used data augmentation, creating a copy of each sample with a horizontal flip, 90 degree rotation, 180 degree rotation, 270 degree rotation, gaussian noise, random block removal???
+The dataset contains # species. Stated in our project proposal, due to some low amount of sample imaging for some species we decided to group by genus. Any genus with under # samples would be removed. This narrowed us down from 509 species, and # genus, to 15 genus. To artificially increase the amount of data in our dataset, we used data augmentation, creating a copy of each sample with a horizontal flip, 90 degree rotation, 180 degree rotation, 270 degree rotation, gaussian noise, and random erasing (small black rectangles). These methods were preferred over others such as kernel filters, lowering the quality of an image. Since these mushrooms can be identified based on specific visual traits found within their genus, high detail in the training images are necessary to allow for differentiation between the different genera. Due to this, prioritizing the quality of the image was necessary. Some simple methods were the flip and rotations, which kept the same image, but just made the model look at it a different way. Gaussian noise was added .................... Random erasing was added to
 
 Baseline Model
 
