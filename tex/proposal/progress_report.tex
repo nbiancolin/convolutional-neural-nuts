@@ -156,5 +156,26 @@ At the start, the team pushed all images into the feature extraction part of Ale
 
 For our current best result, we used a batch size of 36, learning rate of 0.007, and 15 epochs. We chose Cross Entropy Loss for the loss function as we want the model to classify the image into one of the 30 classes. For the optimizer, the group decided on Stochastic Gradient Descent (SGD).
 
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{figures/validationLossGraph.png}
+    \end{center}
+    \caption{Validation Loss}
+\end{figure}
+
+The team's training graph with the specified hyper-parameters is shown above. It indicates that the model is overfitted quickly, to tackle this issue, the team aims to implement regularization and drop off in the future.
+
+\textbf{Testing Accuracy:}
+\begin{itemize}
+    \item Epoch 4: Test Classification Accuracy: 64.01\%
+    \item Epoch 8: Test Classification Accuracy: 65.12\%
+\end{itemize}
+
+From the above graph, the team chose epochs 4 and epoch 8 and did accuracy testing, using the testing data. Currently, we have a test classification accuracy of 65.12\%, which is a good start point considering the model must classify an image into one of thirty classes. The accuracy can be improved using various techniques:
+\begin{itemize}
+    \item The current data used in the training is not augmented. The data augmentation functions are completed, but not used currently to save runtime for the training loop. The team will add the augmented data as part of training in the future.
+    \item Further hyperparameters fine tuning.
+    \item Implementing regularization and drop off to reduce the quick overfitting seen in the validation graph.
+\end{itemize}
 
 \end{document}
