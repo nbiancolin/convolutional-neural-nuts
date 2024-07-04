@@ -104,8 +104,57 @@ Baseline Model
 
 
 Primary Model
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{figures/primaryModelDiagram.png}
+    \end{center}
+    \caption{Model Structure and Tensor Sizes}
+\end{figure}
 
 
+Our CNN model consists of two main sections: a non-tunable transfer learning part and a tunable convolution and fully connected layers section.
+
+\section*{Non-Tunable Section}
+  
+The team uses AlexNet for its high-level feature extraction. AlexNet processes a $3 \times 244 \times 244$ input image and the feature extraction outputs a $256 \times 6 \times 6$ tensor \cite{10}. There are five convolutional layers and three pooling layers \cite{10}, the order of the layers is shown on the hand-drawn diagram above. Since the model needs to differentiate between mushrooms with very similar appearances, AlexNet excels in extracting the fine features that set them apart.
+  
+\section*{Tunable Section}
+  
+To make the model specific to the team’s project, the team uses one additional convolutional layer, outputting a $128 \times 6 \times 6$ tensor. After the additional convolutional layer, the output gets flattened and passed through three fully connected layers with ReLU activation functions in between. The fully connected layers turned the size from 4608 to 256, then to 128, and lastly to 30, matching the number of output classes the team decided for the model.
+  
+In total, there are $5+3$ layers in the non-tunable section and $1+3$ layers in the tunable section, making our class structure 12 layers in total.
+  
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{figures/AlexNetStructure.png}
+    \end{center}
+    \caption{Class Structure: AlexNet \cite{10}}
+\end{figure}
+
+\section*{Calculation of Parameters}
+
+\subsection*{Number of parameters for the AlexNet structure:}
+\begin{align*}
+\text{Conv1} & = 3 \times 11 \times 11 \times (96 + 1) = 35,271 \\
+\text{Conv2} & = 96 \times 5 \times 5 \times (256 + 1) = 616,800 \\
+\text{Conv3} & = 256 \times 3 \times 3 \times (384 + 1) = 886,080 \\
+\text{Conv4} & = 384 \times 3 \times 3 \times (384 + 1) = 1,310,720 \\
+\text{Conv5} & = 384 \times 3 \times 3 \times (256 + 1) = 887,232 \\
+\end{align*}
+
+\subsection*{Number of parameters for the tunable section:}
+\begin{align*}
+\text{Conv1} & = 256 \times 3 \times 3 \times (128 + 1) = 297,216 \\
+\text{Fc1} & = 4608 \times (256 + 1) = 1,183,296 \\
+\text{Fc2} & = 256 \times (128 + 1) = 33,024 \\
+\text{Fc3} & = 128 \times (30 + 1) = 3,968 \\
+\end{align*}
+
+The total number of parameters is 5,273,927, the number of trainable parameters is only 1,517,504. This ensures the training time for our models is feasible, allowing the team to focus on more epochs and more variations using data augmentations in the future.
+
+At the start, the team pushed all images into the feature extraction part of AlexNet, converting data into tensors. We randomly split the data into a 75\%, 15\%, and 10\% ratio for training, validation, and testing.
+
+For our current best result, we used a batch size of 36, learning rate of 0.007, and 15 epochs. We chose Cross Entropy Loss for the loss function as we want the model to classify the image into one of the 30 classes. For the optimizer, the group decided on Stochastic Gradient Descent (SGD).
 
 
 \end{document}
