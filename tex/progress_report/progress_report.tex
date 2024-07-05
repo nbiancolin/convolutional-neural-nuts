@@ -90,7 +90,7 @@ Implementation of data augmentation to model including testing with or without c
 \label{subsec:eric_liu}
 
 \textbf{Work completed to date:}
-Rough draft for Primary Model section of the report. Diagram of model architecture. Data separation and applying transfer learning with AlexNet. Class structure, training function, accuracy function. Validation loss and graphs.
+Rough draft for Primary Model section of the report. Diagram of model architecture. Data separation and applying transfer learning with AlexNet. Model architecture, training function, accuracy function. Validation loss and graphs.
 
 \textbf{Work to be completed:}
 Hyperparameter adjustments to tune model. Progress diagrams for final report. Final evaluation of performance.
@@ -324,7 +324,7 @@ Iterative improvement to reduce training and inference times in code. Final eval
 
 The dataset contains 509 species. As mentioned in our project proposal, we grouped by genus, to ensure a larger amount of data for our training/testing set. We then kept the top 15 genera with the largest datasets. Genus grouping was done by iterating through each species in the dataset and moving the images to a new genus subdirectory. We then sorted the subdirectories by size and kept the top 15.
 
-To increase the amount of data in our dataset, we used data augmentation techniques described by \cite{ShortenKhoshgoftaar.SurveyImageData.2019}. We created a copy of images applying flips, rotations (90, 180, 270 degrees), Gaussian noise, and random erasing (of black rectangular sections). These manipulations were chosen as non-destructive methods that would not alter the image's quality or class.
+To increase the amount of data in our dataset, we used data augmentation techniques described by \cite{ShortenKhoshgoftaar.SurveyImageData.2019}. We created a copy of images applying flips, rotations (90, 180, 270 degrees), Gaussian noise, and random erasing (of black rectangular sections). See Figure 1 for an example. These manipulations were chosen as non-destructive methods that would not alter the image's quality or class.
 
 As mushrooms can be identified based on visual traits, preserving key details was necessary to differentiate between genera. In addition, our model is agnostic to colour, so colour space transformations are not necessary and would add duplicate data in the dataset.
 
@@ -391,20 +391,20 @@ Our CNN model consists of two main sections: a non-tunable transfer learning and
 
 \subsubsection{Non-Tunable Section}
   
-Our team uses AlexNet for its high-level feature extraction. AlexNet processes a $3 \times 244 \times 244$ input image and the feature extraction outputs a $256 \times 6 \times 6$ tensor \citep{Bangar.AlexNetArchitectureExplained.2022}. There are five convolutional layers and three pooling layers \citep{Bangar.AlexNetArchitectureExplained.2022}, the order of the layers is shown on Figure 4. Since the model needs to differentiate between mushrooms with very similar appearances, AlexNet excels in extracting the fine features that set them apart \citep{Bangar.AlexNetArchitectureExplained.2022}.
+Our team uses AlexNet for its high-level feature extraction. Its architecture is described in Figure 5. AlexNet processes a $3 \times 244 \times 244$ input image and the feature extraction outputs a $256 \times 6 \times 6$ tensor \citep{Bangar.AlexNetArchitectureExplained.2022}. There are five convolutional layers and three pooling layers \citep{Bangar.AlexNetArchitectureExplained.2022}, the order of the layers is shown on Figure 4. Since the model needs to differentiate between mushrooms with very similar appearances, AlexNet excels in extracting the fine features that set them apart \citep{Bangar.AlexNetArchitectureExplained.2022}.
   
 \subsubsection{Tunable Section}
   
-To make the model specific to our team’s project, the team uses one additional convolutional layer, outputting a $128 \times 6 \times 6$ tensor. After the additional convolutional layer, the output gets flattened and passed through three fully connected layers with ReLU activation functions in between. The fully connected layers turned the size from 4608 to 256, then to 128, and lastly to 30, matching the number of output classes the team decided for the model.
+To make the model specific to our team's project, we one additional convolutional layer, outputting a $128 \times 6 \times 6$ tensor. After the additional convolutional layer, the output gets flattened and passed through three fully connected layers with ReLU activation functions in between. The fully connected layers turned the size from 4608 to 256, then to 128, and lastly to 30, matching the number of output classes we decided for the model.
   
 
-In total, there are $5+3$ layers in the non-tunable section and $1+3$ layers in the tunable section, making our class structure 12 layers in total.
+In total, there are $5+3$ layers in the non-tunable section and $1+3$ layers in the tunable section, making our model architecture 12 layers in total.
   
 \begin{figure}[h]
     \begin{center}
     \includegraphics[width=0.6\textwidth]{figures/AlexNetStructure.png}
     \end{center}
-    \caption{Class Structure: AlexNet \citep{Bangar.AlexNetArchitectureExplained.2022}}
+    \caption{AlexNet model architecture \citep{Bangar.AlexNetArchitectureExplained.2022}}
 \end{figure}
 
 \subsubsection{Calculation of Parameters}
@@ -426,9 +426,9 @@ In total, there are $5+3$ layers in the non-tunable section and $1+3$ layers in 
 \text{Fc3} & = 128 \times (30 + 1) = 3,968 \\
 \end{align*}
 
-The total number of parameters is 5,273,927, the number of trainable parameters is only 1,517,504. This ensures the training time for our models is feasible, allowing the team to focus on more epochs and more variations using data augmentations in the future.
+The total number of parameters is 5,273,927, and the number of trainable parameters is only 1,517,504. This ensures the training time for our models is feasible, allowing us to focus on more epochs and more variations using data augmentations in the future.
 
-At the start, the team pushed all images into the feature extraction part of AlexNet, converting data into tensors. We randomly split the data into a 75\%, 15\%, and 10\% ratio for training, validation, and testing.
+At the start, we pushed all images into the feature extraction part of AlexNet, converting data into tensors. We randomly split the data into a 75\%, 15\%, and 10\% ratio for training, validation, and testing.
 
 For the current best result, we used a batch size of 36, learning rate of 0.007, and 15 epochs. We chose cross entropy loss for the loss function as we want the model to classify the image into one of the 30 classes. For the optimizer, the group decided on stochastic gradient descent (SGD).
 
@@ -443,17 +443,17 @@ For the current best result, we used a batch size of 36, learning rate of 0.007,
 
 \FloatBarrier
 
-The team's training graph with the specified hyper-parameters is shown in Figure 6. It indicates that the model is overfitted quickly. To tackle this issue, the team aims to implement regularization and drop off in the future.
+Our training graph with the specified hyper-parameters is shown in Figure 6. It indicates that the model is overfitted quickly. To tackle this issue, we aim to implement regularization and drop off in the future.
 
 \textbf{Testing Accuracy:}
 \begin{itemize}
-    \item Epoch 4: Test Classification Accuracy: 64.01\%
-    \item Epoch 8: Test Classification Accuracy: 65.12\%
+    \item Epoch 4: Test classification accuracy: 64.01\%
+    \item Epoch 8: Test classification accuracy: 65.12\%
 \end{itemize}
 
-From the above graph, the team chose epoch 4 and epoch 8 and did accuracy testing, using the testing data. The testing accuracy is at a good starting point considering the model must classify an image into one of thirty classes. The accuracy can be improved using various techniques:
+From the above graph, we chose epoch 4 and epoch 8 and did accuracy testing, using the testing data. The testing accuracy is at a good starting point considering the model must classify an image into one of thirty classes. The accuracy can be improved using various techniques:
 \begin{itemize}
-    \item The current data used in the training is not augmented. The data augmentation functions are completed, but not used currently to save runtime for the training loop. The team will add the augmented data as part of training in the future.
+    \item The current data used in the training is not augmented. The data augmentation functions are completed, but not used currently to save runtime for the training loop. We will add the augmented data as part of training in the future.
     \item Further hyperparameters fine tuning.
     \item Implementing regularization and drop off to reduce the quick overfitting seen in the validation graph.
 \end{itemize}
