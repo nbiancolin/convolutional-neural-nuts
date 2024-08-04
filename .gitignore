@@ -160,3 +160,7 @@ data/
 *.synctex.gz
 *.bbl
 *.blg
+
+
+#data stuff
+splittedImgFolder/
