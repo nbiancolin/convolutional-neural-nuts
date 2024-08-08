@@ -165,6 +165,7 @@ data/
 #data stuff
 splittedImgFolder/
 src/modelStorage/
+NewData/
 
 #Ignore all .pt and .pkl
 *.pt
