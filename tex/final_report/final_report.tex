@@ -56,6 +56,16 @@ Student\# 1008997631 \\
 \section{Introduction}
 \label{sec:introduction}
 
+Fungi identification is an increasingly critical task, with implications in food security, industrial use, conservation efforts, and biosafety. However, visual and image classification of fungi is a difficult task due to the wide variety of species \citep{LuckingAimeEtAl.UnambiguousIdentificationFungi.2020}.
+
+Our project developed a deep learning model based on a convolutional architecture to accurately identify macrofungi (fungi with large bodies) based on their genus. Deep learning formed a suitable choice for this task, as it constitutes a powerful and accurate method for image recognition and classification tasks, including in ecological settings \citep{SchneiderTaylorEtAl.PresentFutureApproaches.2019}.
+
+Nearly 87\% of Ontario's land is Crown Land, filled with expansive forests and a diverse array of plant species. Among these, mushrooms stand out as both common and challenging to identify, due to their wide variety and subtle differences between species. Thus, identification is particularly important because some species are edible and others are highly poisonous, which could pose a risk to foragers and nature enthusiasts.
+
+We used the MIND.Funga dataset described in \cite{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}, which has approximately 17 000 images of more than 500 species of fungi. This dataset is well-suited for our project, as it is built primarily for use in deep classification models. Images are also curated to be of a high quality and are labelled by species.
+
+Our code can be found at this \href{https://github.com/nbiancolin/convolutional-neural-nuts}{GitHub repository}. It contains Jupyter notebooks with pre-processing, baseline, main model, and evaluation code.
+
 \section{Background \& Related Work}
 \label{sec:background}
 
@@ -88,7 +98,7 @@ The dataset also mostly contains images of tropical fungi from Brazil, with a sm
 
 \label{last_page}
 
-\bibliography{progress_ref}
+\bibliography{final_report}
 \bibliographystyle{iclr2022_conference}
 
 \end{document}
