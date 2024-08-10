@@ -85,7 +85,9 @@ Our final dataset contains 16 962 training images, 3379 validation images, and 2
 
 \section{Baseline Model}
 \label{sec:baseline}
-Our baseline model is a random forests classifier trained with scikit-learn on the same dataset as our deep learning model. 
+Our baseline model is a random forests classifier trained with scikit-learn on the same dataset as our deep learning model. Decision tree classifiers, like random forests, are generally well-suited for multiclass problems \citep{GallRazaviEtAl.IntroductionRandomForests.2012}. We follow the same processing steps as the primary model, including a train-test split of 75\%-25\%, data augmentation on the training set, feature extraction, training, and evaluation.
+
+We apply feature extraction with histogram of oriented gradients (HOG), on grayscale images \citep{AbouelnagaThambirajaEtAl.ObjectDetectionHistogram.2018}, computed with scikit-image. As random forests does not automatically perform feature extraction (compared to deep convolutional networks), this step is done to provide the model with a more effective set of features to learn from. We compute HOG features on both the training and testing set with default parameters, in line with the process outlined by \cite{Dutta.RandomForestImage.2024}. We also use default hyperparameters for training, with the exception of the number of estimators, set to 500, which suggests is an optimal numbe
 
 \section{Quantitative Results}
 \label{sec:quantitative_results}
