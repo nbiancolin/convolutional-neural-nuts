@@ -82,6 +82,9 @@ Student\# 1008997631 \\
 
 \section{Ethical Considerations}
 \label{sec:ethics}
+Many machine learning models rely on the "unauthorized uses of copyrighted" data for training purposes. This broadly results in infringement of the intellectual property rights and personal interests of the data owners \citep{Sobel.TaxonomyTrainingData.2021}. The dataset used in this project, MIND.Funga, is publicly licensed under a permissive copyleft license (CC BY NC 3.0) \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}. Images were sourced from contributions from the public and academics. However, the organizing project does not disclose that public contributions will be released under this license \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}, suggesting that the dataset may contain images that were not intended to be shared under this license as a result of inadequate informed consent.
+
+The dataset also mostly contains images of tropical fungi from Brazil, with a small subset (approximately 500 out of 14 000) of the globally recorded number of fungi species \citep{LuckingAimeEtAl.UnambiguousIdentificationFungi.2020}. This results in a model that is primarily representative of Brazilian fungi species. As some fungi species can be poisonous, any practical real-world applications of our model may result in misclassifications, which may result in harm to users that rely on the model. This is a significant ethical concern, as the model may be used by individuals who are not experts in mycology, and may not be able to identify the potential risks of consuming certain fungi species.
 
 \label{last_page}
 
