@@ -94,6 +94,8 @@ Our final dataset contains 16 962 training images, 3379 validation images, and 2
 \label{sec:architecture}
 Our primary model relies on two distinct sections: a non-tunable transfer learning section, and a tunable convolutional and fully-connected section. Our data pre-processing and model training pipeline is described in Figure \ref{fig:pipeline}.
 
+We also use cross entropy loss, as it is a standard loss function for multi-class classification tasks. We also use a stochastic gradient optimizer, with a momentum of 0.8, weight decay of 0.001, and learning rate of 0.001. Our training flow uses 100 epochs with a batch size of 64.
+
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
@@ -103,6 +105,28 @@ Our primary model relies on two distinct sections: a non-tunable transfer learni
     \label{fig:pipeline}
 \end{figure}
 \FloatBarrier
+
+\subsection{Non-Tunable Section}
+\label{sec:non_tunable_section}
+We use AlexNet for high-level feature extraction, sourced from PyTorch's pre-trained models. AlexNet is a well-known convolutional architecture for image classification tasks \citep{NIPS2012_c399862d}. Since the model needs to differentiate between mushrooms with similar appearances, AlexNet excels in extracting the fine features that set them apart.
+
+Its architecture is described in Figure \ref{fig:alexnet}. It processes a $3\times 244\times 244$ input image, and the feature extraction outputs a $256\times 6\times 6$ tensor. There are five convolutional layers and three pooling layers \citep{NIPS2012_c399862d}.
+
+\FloatBarrier
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/AlexNetStructure.png}
+    \end{center}
+    \caption{AlexNet architecture}
+    \label{fig:alexnet}
+\end{figure}
+\FloatBarrier
+
+\subsection{Tunable Section}
+\label{sec:tunable_section}
+To make the model specific to our team's project, we add an additional convolutional layer, which outputs a $128\times6\times6$ tensor. After this layer, the output is flattened and passed through three fully-connected layers with ReLU activation functions. The fully-connected layers have 256, 128, and 10 neurons, respectively, which matches the number of output classes in our dataset.
+
+In total, there are $5+3$ layers in the non-tunable section, and $1+3$ layers in the tunable section, making our model architecture 12 layers in total.
 
 \section{Baseline Model}
 \label{sec:baseline}
