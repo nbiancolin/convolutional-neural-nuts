@@ -147,11 +147,29 @@ We apply feature extraction on grayscale images with histogram of oriented gradi
 \end{figure}
 \FloatBarrier
 
-The team achieved a testing accuracy of 81.4\% with our final model. More than 16\% increase from the progress report.
+The team achieved a testing accuracy of 81.4\% with our final model. More than a 16\% increase from the progress report.
 
 During model training, the group prioritized validation loss over training loss, as validation loss serves a more unbiased meaure of the model's performance, brining better generalization. After training with a unique set of hyperparameters, we select epochs with low validation loss, saving the models then run the testing set to determine a testing accuracy. Finally, the group selected the model with the highest testing accuracy.
 
+\FloatBarrier
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/validationLossGraph.png}
+    \end{center}
+    \caption{Train vs validation loss: progress report}
+    \label{fig:progressReportResult}
+\end{figure}
+\FloatBarrier
+
+From the above graph, the validation curve does not overfit immediately as the one seen in the progress report. This improvement is due data augmentation, weight decay, dropout, and hyperparemeter tuning discussed above and in previous sections. 
+
 Final Hyperparameters:
+\begin{itemize}
+    \item Learning rate: 0.0006
+    \item NumEpoch = 101, chosen epoch for model = 90
+    \item Batch size = 64
+    \item Weight decay = 0.003
+\end{itemize}
 
 \section{Qualitative Results}
 \label{sec:qualitative_results}
