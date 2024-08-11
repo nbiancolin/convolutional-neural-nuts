@@ -134,6 +134,8 @@ Our baseline model is a random forests classifier trained with scikit-learn on t
 
 We apply feature extraction on grayscale images with histogram of oriented gradients (HOG), an edge extraction descriptor algorithm \citep{N.DalalB.Triggs.HistogramsOrientedGradients.2005} and computed with scikit-image. As random forests does not automatically perform feature extraction (compared to deep convolutional networks), this step is done to provide the model with a more effective set of features to learn from. We compute HOG features on both the training and testing set with default parameters, in line with the process outlined by \cite{Dutta.RandomForestImage.2024}. We also use default hyperparameters for training, with the exception of the number of estimators, set to 500, which suggests is an optimal number of trees for increasing accuracy.
 
+Our final baseline model achieves an accuracy of 61\%. We achieve an average precision of 0.7, recall of 0.51, and F1 score of 0.54.
+
 \section{Quantitative Results}
 \label{sec:quantitative_results}
 
