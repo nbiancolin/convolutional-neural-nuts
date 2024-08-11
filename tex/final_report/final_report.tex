@@ -80,9 +80,20 @@ Finally, we apply data augmentation techniques described by \cite{ShortenKhoshgo
 
 Our final dataset contains 16 962 training images, 3379 validation images, and 2324 testing images. To generate a usable set, we save a comma-separated value (CSV) file for each set, containing the image path and corresponding label. We also serialize the dataset into a binary Pickle object.
 
+
+% put main model architecture drawing here for now
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/modelArchitecture_drawing.png}
+    \end{center}
+    \caption{Final Model Architecture}
+\end{figure}
+
+
 \section{Architecture}
 \label{sec:architecture}
 Our primary model relies on two distinct sections: a non-tunable transfer learning section, and a tunable convolutional and fully-connected section. Our data pre-processing and model training pipeline is described in Figure \ref{fig:pipeline}.
+
 
 \section{Baseline Model}
 \label{sec:baseline}
