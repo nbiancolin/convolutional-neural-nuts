@@ -71,8 +71,7 @@ Our code can be found at this \href{https://github.com/nbiancolin/convolutional-
 
 \section{Data Processing}
 \label{sec:data_processing}
-% TODO: fill out number of classes
-The original dataset contains images of 509 classes. Many species have a small number of images associated with them, insufficient for training a deep learning model. To mitigate this, we grouped images into larger "buckets" based on their genus to reduce the number of classes to XX classes, which increases the number of images per class. Genera form an ideal way to group images together, as species of the same genus share physical characteristics and the same root name (first word in the species name) \citep{HollisterCaiEtAl.UsingComputerVision.2023}.
+The original dataset contains images of 509 classes. Many species have a small number of images associated with them, insufficient for training a deep learning model. To mitigate this, we grouped images into larger "buckets" based on their genus to reduce the number of classes to 216 classes, which increases the number of images per class. Genera form an ideal way to group images together, as species of the same genus share physical characteristics and the same root name (first word in the species name) \citep{HollisterCaiEtAl.UsingComputerVision.2023}.
 
 Once this combination is done, we take the top 10 genera with the most images to form an intermediate dataset of 6131 images. We then randomly split the dataset into training, validation, and testing sets with a 75\%, 15\%, and 10\% split, respectively. This split ensures the model has enough data to train on, while ensuring validation and testing better reflects its performance.
 
@@ -165,12 +164,12 @@ During model training, the group prioritized validation loss over training loss,
 
 From the above graph, the validation curve does not overfit immediately as the one seen in the progress report. This improvement is due data augmentation, weight decay, dropout, and hyperparemeter tuning discussed above and in previous sections. 
 
-Final Hyperparameters:
+Our final hyperparameters were:
 \begin{itemize}
     \item Learning rate: 0.0006
-    \item NumEpoch = 101, chosen epoch for model = 90
-    \item Batch size = 64
-    \item Weight decay = 0.003
+    \item Number of epochs: 101, chosen epoch for model: 90
+    \item Batch size: 64
+    \item Weight decay: 0.003
 \end{itemize}
 
 \section{Qualitative Results}
@@ -178,6 +177,9 @@ Final Hyperparameters:
 
 \section{Evaluation on New Data}
 \label{sec:evaluation}
+We also evaluated our model on data collected from outside the MIND.Funga dataset. We collected 26 images of our dataset's genera, with about 2-3 images per genus. This was collected from Wikimedia Commons, an online repository of permissively-licensed images. We took special care to ensure that the images were not included in the original dataset. As MIND.Funga is primarily made up of images from the public and academics, we are confident that no images from Wikimedia Commons were included in the original dataset \citep{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}.
+
+Notably, our baseline model performs significantly worse than our deep learning model, with correct predictions on only 8\% of new images. It overpredicts the genus \textit{Hygrocybe}, the second most frequent genus in the dataset, on 61\% of images. This may be a result of the baseline model's lack of robustness with non-curated data, and largely suggests the rigidity of non-deep learning models without excessive hyperparameter tuning in handling image classification tasks.
 
 \section{Discussion}
 \label{sec:discussion}
