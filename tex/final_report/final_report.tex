@@ -137,6 +137,22 @@ We apply feature extraction on grayscale images with histogram of oriented gradi
 \section{Quantitative Results}
 \label{sec:quantitative_results}
 
+\FloatBarrier
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/trainValidationLoss_finalModel.png}
+    \end{center}
+    \caption{Train vs validation loss: final model}
+    \label{fig:finalModelResult}
+\end{figure}
+\FloatBarrier
+
+The team achieved a testing accuracy of 81.4\% with our final model. More than 16\% increase from the progress report.
+
+During model training, the group prioritized validation loss over training loss, as validation loss serves a more unbiased meaure of the model's performance, brining better generalization. After training with a unique set of hyperparameters, we select epochs with low validation loss, saving the models then run the testing set to determine a testing accuracy. Finally, the group selected the model with the highest testing accuracy.
+
+Final Hyperparameters:
+
 \section{Qualitative Results}
 \label{sec:qualitative_results}
 
