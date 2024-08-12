@@ -146,7 +146,7 @@ Our final baseline model achieves an accuracy of 61\%. We achieve an average pre
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/trainValidationLoss_finalModel.png}
+    \includegraphics[width=0.7\textwidth]{figures/trainValidationLoss_finalModel.png}
     \end{center}
     \caption{Train vs validation loss: final model}
     \label{fig:finalModelResult}
@@ -160,7 +160,7 @@ During model training, the group prioritized validation loss over training loss,
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/validationLossGraph.png}
+    \includegraphics[width=0.7\textwidth]{figures/validationLossGraph.png}
     \end{center}
     \caption{Train vs validation loss: progress report}
     \label{fig:progressReportResult}
@@ -185,7 +185,7 @@ To better understand what our team's model can achieve, the group done qualitati
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/qualitativeResultImg1.png}
+    \includegraphics[width=0.8\textwidth]{figures/qualitativeResultImg1.png}
     \end{center}
     \caption{Qualitative Model: Successful prediction}
     \label{fig:goodPrediction}
@@ -199,7 +199,7 @@ In total, the team tested five sample outputs from the model, with three out of 
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/qualitativeResultImg2.png}
+    \includegraphics[width=0.8\textwidth]{figures/qualitativeResultImg2.png}
     \end{center}
     \caption{Qualitative Model: Unsuccessful prediction}
     \label{fig:badPrediction}
@@ -211,7 +211,7 @@ The figure above shows one of the wrong predictions made by the model. The two i
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
-    \includegraphics[width=0.9\textwidth]{figures/qualitativeResultImg3.png}
+    \includegraphics[width=0.8\textwidth]{figures/qualitativeResultImg3.png}
     \end{center}
     \caption{Qualitative Model: Successful prediction}
     \label{fig:goodPrediction2}
@@ -226,10 +226,12 @@ We also evaluated our model on data collected from outside the MIND.Funga datase
 
 Notably, our baseline model performs significantly worse than our deep learning model, with correct predictions on only 8\% of new images. It overpredicts the genus \textit{Hygrocybe}, the second most frequent genus in the dataset, on 61\% of images. This may be a result of the baseline model's lack of robustness with non-curated data, and largely suggests the rigidity of non-deep learning models without excessive hyperparameter tuning in handling image classification tasks.
 
+Our main model, successfully identifies 65\% of the new images, which can be attributed to the new images having varying picture resolutions (some with blurred backgrounds), and some with varying amounts of mushrooms and background differences than the photos found in the dataset.
+
 \section{Discussion}
 \label{sec:discussion}
 
-Our baseline model incurred an accuracy of 61\%, while our main model improved the accuracy by 20\%, totaling 81.4\% testing accuracy. Since the progress report, we have implemented data augmentation, to articifially increase the size of our dataset, and optimized which types of data alterations are most efficient for the model. This was paired with many hyperparameter changes, and a variety of tests with varying epochs and learning rates. We would have liked our final model to have a higher accuracy, but we are satisfied with our results.
+Our baseline model incurred an accuracy of 61\%, while our main model improved the accuracy by 20\%, totaling 81.4\% testing accuracy. Since the progress report, we have implemented data augmentation, to articifially increase the size of our dataset, and optimized which types of data alterations are most efficient for the model. This was paired with many hyperparameter changes, and a variety of tests with varying epochs and learning rates. We would have liked our final model to have a higher accuracy, but we are satisfied with our results, especially since we are comparing between 10 classes.
 
 An area in which we believe we could have improved is in our evaluation on new data. Due to many of the images gathered as new data having potentially different environments and sources as the ones from our dataset, there were some discrepencies in the final accuracy for the model, especially with the baseline mode, while the main model did okay. As explained in the previous section, this mostly has to do with the amount of hyperparameter tuning in our main model, as our accuracy between models goes from 8\% to 65\% respectively. 
 
