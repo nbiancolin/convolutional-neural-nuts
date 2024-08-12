@@ -13,6 +13,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
+\usepackage{subfigure}
 
 \usepackage{graphicx} % Required for \resizebox
 \usepackage{placeins} % Required for \FloatBarrier
@@ -145,11 +146,18 @@ Our final baseline model achieves an accuracy of 61\%. We achieve an average pre
 
 \FloatBarrier
 \begin{figure}[h]
-    \begin{center}
-    \includegraphics[width=0.7\textwidth]{figures/trainValidationLoss_finalModel.png}
-    \end{center}
-    \caption{Train vs validation loss: final model}
-    \label{fig:finalModelResult}
+    \centering
+    \subfigure[Train vs validation loss: final model]{%
+        \includegraphics[width=0.45\textwidth]{figures/trainValidationLoss_finalModel.png}
+        \label{fig:finalModelResult}
+    }
+    \hfill
+    \subfigure[Train vs validation loss: progress report]{%
+        \includegraphics[width=0.45\textwidth]{figures/validationLossGraph.png}
+        \label{fig:progressReportResult}
+    }
+    \caption{Comparison of training and validation loss for the final model and progress report}
+    \label{fig:sideBySideGraphs}
 \end{figure}
 \FloatBarrier
 
@@ -157,17 +165,7 @@ The team achieved a testing accuracy of 81.4\% with our final model. More than a
 
 During model training, the group prioritized validation loss over training loss, as validation loss serves a more unbiased meaure of the model's performance, brining better generalization. After training with a unique set of hyperparameters, we select epochs with low validation loss, saving the models then run the testing set to determine a testing accuracy. Finally, the group selected the model with the highest testing accuracy.
 
-\FloatBarrier
-\begin{figure}[h]
-    \begin{center}
-    \includegraphics[width=0.7\textwidth]{figures/validationLossGraph.png}
-    \end{center}
-    \caption{Train vs validation loss: progress report}
-    \label{fig:progressReportResult}
-\end{figure}
-\FloatBarrier
-
-From the above graph, the validation curve does not overfit immediately as the one seen in the progress report. This improvement is due data augmentation, weight decay, dropout, and hyperparemeter tuning discussed above and in previous sections. 
+From the above progress report graph, the validation curve does not overfit immediately as the one seen in the progress report. This improvement is due data augmentation, weight decay, dropout, and hyperparemeter tuning discussed above and in previous sections. 
 
 Our final hyperparameters were:
 \begin{itemize}
@@ -184,29 +182,26 @@ To better understand what our team's model can achieve, the group done qualitati
 
 \FloatBarrier
 \begin{figure}[h]
-    \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/qualitativeResultImg1.png}
-    \end{center}
-    \caption{Qualitative Model: Successful prediction}
-    \label{fig:goodPrediction}
+    \centering
+    \subfigure[Qualitative Model: Successful prediction]{%
+        \includegraphics[width=0.45\textwidth]{figures/qualitativeResultImg1.png}
+        \label{fig:finalModelResult}
+    }
+    \hfill
+    \subfigure[Qualitative Model: Unsuccessful prediction]{%
+        \includegraphics[width=0.45\textwidth]{figures/qualitativeResultImg2.png}
+        \label{fig:progressReportResult}
+    }
+    \caption{Comparison of successful and unsuccessful predictions}
+    \label{fig:sideBySideGraphs}
 \end{figure}
 \FloatBarrier
 
-In the top of the above figure, the team generated a random genus name and randomly selected an associated image. The image is then passed through the function, which returns the prediction. In the above sample, the prediction matches the generated name, showcasing that the model successully identified the genus. The output tensor for the model's prediction is also displayed on the figure, showing the probability distribution of the image belonging to each of the classes.
+In the top of the above left figure, the team generated a random genus name and randomly selected an associated image. The image is then passed through the function, which returns the prediction. In the above sample, the prediction matches the generated name, showcasing that the model successully identified the genus. The output tensor for the model's prediction is also displayed on the figure, showing the probability distribution of the image belonging to each of the classes.
 
 In total, the team tested five sample outputs from the model, with three out of the five samples successully identified. 
 
-\FloatBarrier
-\begin{figure}[h]
-    \begin{center}
-    \includegraphics[width=0.8\textwidth]{figures/qualitativeResultImg2.png}
-    \end{center}
-    \caption{Qualitative Model: Unsuccessful prediction}
-    \label{fig:badPrediction}
-\end{figure}
-\FloatBarrier
-
-The figure above shows one of the wrong predictions made by the model. The two incorrect predictions share some similarities. Firstly, the model is more likely to identify an image if it contains more defining characteristics, such as unique colors, with the fungi zoomed-in and centered. Another common reason for the false prediction is when the image resembles those in other genuses; a common occurrence in our data set.
+The right figure above shows one of the wrong predictions made by the model. The two incorrect predictions share some similarities. Firstly, the model is more likely to identify an image if it contains more defining characteristics, such as unique colors, with the fungi zoomed-in and centered. Another common reason for the false prediction is when the image resembles those in other genuses; a common occurrence in our data set.
 
 \FloatBarrier
 \begin{figure}[h]
