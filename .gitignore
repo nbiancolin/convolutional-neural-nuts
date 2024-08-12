@@ -160,6 +160,7 @@ data/
 *.synctex.gz
 *.bbl
 *.blg
+*.synctex(busy)
 
 
 #data stuff
