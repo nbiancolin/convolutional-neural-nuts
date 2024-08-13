@@ -118,14 +118,14 @@ We use cross entropy loss, as it is a standard loss function for multi-class cla
 \label{sec:non_tunable_section}
 We use AlexNet for high-level feature extraction, sourced from PyTorch's pre-trained models. AlexNet is a well-known convolutional architecture for image classification tasks \citep{NIPS2012_c399862d}. Since the model needs to differentiate between mushrooms with similar appearances, AlexNet excels in extracting the fine features that set them apart.
 
-Its architecture is described in Figure \ref{fig:alexnet}. It processes a $3\times 244\times 244$ input image, and the feature extraction outputs a $256\times 6\times 6$ tensor. There are five convolutional layers and three pooling layers \citep{NIPS2012_c399862d}.
+Its architecture is described in Figure \ref{fig:alexnet}. It processes a $3\times 244\times 244$ input image, and the feature extraction outputs a $256\times 6\times 6$ tensor \citep{Bangar.AlexNetArchitectureExplained.2022}. There are five convolutional layers and three pooling layers \citep{NIPS2012_c399862d}.
 
 \FloatBarrier
 \begin{figure}[h]
     \begin{center}
     \includegraphics[width=0.9\textwidth]{figures/AlexNetStructure.png}
     \end{center}
-    \caption{AlexNet architecture}
+    \caption{AlexNet architecture \citep{Bangar.AlexNetArchitectureExplained.2022}}
     \label{fig:alexnet}
 \end{figure}
 \FloatBarrier
