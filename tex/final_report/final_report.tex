@@ -68,7 +68,7 @@ Our project developed a deep learning model based on a convolutional architectur
 
 We used the MIND.Funga dataset described in \cite{Drechsler-SantosKarstedtEtAl.MINDFunga.2023}, which has approximately 17 000 images of more than 500 species of fungi spanning 216 genera. This dataset is well-suited for our project, as it is built primarily for use in deep classification models. Images are also curated to be of a high quality and are labelled by species.
 
-Our code can be found at this \href{https://github.com/nbiancolin/convolutional-neural-nuts}{GitHub repository}. It contains Jupyter notebooks with pre-processing, baseline, main model, and evaluation code.
+Our code can be found at this \href{https://github.com/nbiancolin/fungafinder}{GitHub repository}. It contains Jupyter notebooks with pre-processing, baseline, main model, and evaluation code.
 
 \section{Background \& Related Work}
 \label{sec:background}
@@ -118,7 +118,7 @@ We use cross entropy loss, as it is a standard loss function for multi-class cla
 \label{sec:non_tunable_section}
 We use AlexNet for high-level feature extraction, sourced from PyTorch's pre-trained models. AlexNet is a well-known convolutional architecture for image classification tasks \citep{NIPS2012_c399862d}. Since the model needs to differentiate between mushrooms with similar appearances, AlexNet excels in extracting the fine features that set them apart.
 
-Its architecture is described in Figure \ref{fig:alexnet}. It processes a $3\times 244\times 244$ input image, and the feature extraction outputs a $256\times 6\times 6$ tensor \citep{Bangar.AlexNetArchitectureExplained.2022}. There are five convolutional layers and three pooling layers \citep{NIPS2012_c399862d}.
+AlexNet's architecture is described in Figure \ref{fig:alexnet}. It processes a $3\times 244\times 244$ input image, and the feature extraction outputs a $256\times 6\times 6$ tensor \citep{Bangar.AlexNetArchitectureExplained.2022}. There are five convolutional layers and three pooling layers \citep{NIPS2012_c399862d}.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -133,6 +133,8 @@ Its architecture is described in Figure \ref{fig:alexnet}. It processes a $3\tim
 \subsection{Tunable Section}
 \label{sec:tunable_section}
 To make the model specific to our team's project, we add an additional convolutional layer, which outputs a $128\times6\times6$ tensor. After this layer, the output is flattened and passed through three fully-connected layers with ReLU activation functions. The fully-connected layers have 256, 128, and 10 neurons, respectively, which matches the number of output classes in our dataset.
+
+We apply a 10\% dropout rate in between the first 3 layers. We also apply a weight decay of 0.001 in the training function to prevent overfitting.
 
 In total, there are $5+3$ layers in the non-tunable section, and $1+3$ layers in the tunable section, making our model architecture 12 layers in total.
 
@@ -164,9 +166,9 @@ Our final baseline model achieves an accuracy of 61\%. We achieve an average pre
 \end{figure}
 \FloatBarrier
 
-The team achieved a testing accuracy of 81.4\% with our final model. More than a 16\% increase from the progress report.
+The team achieved a testing accuracy of 81.4\% with our final model, representing a 16\% increase from the progress report.
 
-During model training, the group prioritized validation loss over training loss, as validation loss serves a more unbiased meaure of the model's performance, brining better generalization. After training with a unique set of hyperparameters, we select epochs with low validation loss, saving the models then run the testing set to determine a testing accuracy. Finally, the group selected the model with the highest testing accuracy.
+During model training, the group prioritized validation loss over training loss, as validation loss serves a more unbiased measure of the model's performance, brining better generalization. After training with a unique set of hyperparameters, we select epochs with low validation loss, saving the models then run the testing set to determine a testing accuracy. Finally, the group selected the model with the highest testing accuracy.
 
 From the above final model graph, the validation curve does not overfit immediately as the one seen in the progress report. This improvement is due to data augmentation, weight decay, dropout, and hyperparemeter tuning discussed above and in previous sections. 
 
