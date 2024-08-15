@@ -1,5 +1,7 @@
-# convolutional-neural-nuts
+# fungafinder
  APS360 '24
+
+ check out our final presentation here!: https://utoronto-my.sharepoint.com/my?id=%2Fpersonal%2Fn%5Fbiancolin%5Fmail%5Futoronto%5Fca%2FDocuments%2FAPS360
 
 # To Run
  1. preprocessing.ipynb - to generate filtered and augmented csv data files
